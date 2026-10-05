@@ -55,7 +55,7 @@ describe('Nexa workspace',()=>{
   fireEvent.click(screen.getByRole('button',{name:'Send message'}));await finish();expect(screen.getByRole('log').textContent).toContain('Contents are not analyzed');
   fireEvent.click(screen.getByRole('button',{name:'Settings'}));fireEvent.click(screen.getByRole('button',{name:'Dark mode'}));expect(localStorage.getItem('nexa-theme')).toBe('dark');fireEvent.click(screen.getByRole('button',{name:'Close dialog'}));
   fireEvent.click(screen.getByRole('button',{name:/Help & getting started/}));expect(screen.getByRole('dialog').textContent).toContain('About this demo');fireEvent.keyDown(document,{key:'Escape'});
-  fireEvent.click(screen.getByRole('button',{name:/Sahil Meo Full Stack Developer/}));expect(screen.getByRole('dialog').textContent).toContain('Personal workspace');
+  fireEvent.click(screen.getByRole('button',{name:/Usman Shah Full Stack Developer/}));expect(screen.getByRole('dialog').textContent).toContain('Personal workspace');
  });
  it('shows a generation error and retries successfully',async()=>{
   const mock=vi.spyOn(engine,'generateMockResponse');render(<App/>);mock.mockImplementationOnce(()=>{throw new Error('Simulated failure');});send('Test retry');await finish();
